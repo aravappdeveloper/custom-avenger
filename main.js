@@ -1,7 +1,7 @@
 var canvas = new fabric.Canvas("myCanvas");
 
-var block_image_width = 200;
-var block_image_height = 200;
+var block_image_width = 30;
+var block_image_height = 30;
 var player_x = 10;
 var player_y = 10;
 var player_object = "";
@@ -97,5 +97,45 @@ function my_keydown(e){
     if(keyPressed == '39'){
         right();
         console.log("right");
+    }
+
+    function up(){
+        if(player_y >= 0){
+            player_y -= block_image_height;
+            console.log("block_image_height = " + block_image_height)
+            console.log("When up arrow key is pressed, player coordinates are: (" + player_x + ", " + player_y + ")");
+            canvas.remove(player_object);
+            player_update();
+        }
+    }
+    
+    function down(){
+        if(player_y <= 500){
+            player_y += block_image_height;
+            console.log("block_image_height = " + block_image_height)
+            console.log("When down arrow key is pressed, player coordinates are: (" + player_x + ", " + player_y + ")");
+            canvas.remove(player_object);
+            player_update();
+        }
+    }
+    
+    function left(){
+        if(player_x >= 0){
+            player_x -= block_image_width;
+            console.log("block_image_height = " + block_image_height)
+            console.log("When left arrow key is pressed, player coordinates are: (" + player_x + ", " + player_y + ")");
+            canvas.remove(player_object);
+            player_update();
+        }
+    }
+    
+    function right(){
+        if(player_x <= 850){
+            player_x += block_image_width;
+            console.log("block_image_height = " + block_image_height)
+            console.log("When right arrow key is pressed, player coordinates are: (" + player_x + ", " + player_y + ")");
+            canvas.remove(player_object);
+            player_update();
+        }
     }
 }
